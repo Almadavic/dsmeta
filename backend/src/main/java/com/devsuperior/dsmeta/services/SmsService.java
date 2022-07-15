@@ -34,7 +34,7 @@ public class SmsService {
             PhoneNumber to = new PhoneNumber(twilioPhoneTo);
             PhoneNumber from = new PhoneNumber(twilioPhoneFrom);
 
-            Sale sale = nameUserSale(id);
+            Sale sale = returnSale(id);
 
             String date = sale.getDate().getMonthValue()+"/"+sale.getDate().getYear();
 
@@ -47,7 +47,7 @@ public class SmsService {
             return text;
         }
 
-        private Sale nameUserSale(Long id) {
+        private Sale returnSale(Long id) {
 
             Sale sale = saleRepository.findById(id).orElseThrow();
             return sale;
